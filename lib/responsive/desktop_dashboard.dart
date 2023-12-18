@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jkb_mobile/constants.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DesktopDashboard extends StatelessWidget {
@@ -211,7 +210,7 @@ class DesktopDashboard extends StatelessWidget {
         backgroundColor: Colors.green,
         foregroundColor: Colors.white,
         shape: const CircleBorder(),
-        child: Icon(MdiIcons.whatsapp, size: 32),
+        child: Image.asset('images/wa.gif', width: 42),
         onPressed: () {
           launchUrl(Uri.parse('https://wa.me/6281128041000'));
         },

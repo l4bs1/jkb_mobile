@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jkb_mobile/constants.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:jkb_mobile/informasi.dart';
+import 'package:jkb_mobile/program_studi.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MobileDashboard extends StatelessWidget {
@@ -162,35 +163,58 @@ class MobileDashboard extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const AlwaysScrollableScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    margin:
-                        const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.white,
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black26,
-                          spreadRadius: 1,
-                          blurRadius: 6,
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset(
-                          imgData[index],
-                        ),
-                        Text(
-                          title[index],
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w500,
+                  return InkWell(
+                    onTap: () {
+                      if (index == 0) {
+                        print('Program Studi');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ProgramStudi()),
+                        );
+                      } else if (index == 1) {
+                        print('Informasi');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Informasi()),
+                        );
+                      } else if (index == 2) {
+                        print('Event');
+                      } else {
+                        print('Berita Terkini');
+                      }
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 20),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black26,
+                            spreadRadius: 1,
+                            blurRadius: 6,
                           ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Image.asset(
+                            imgData[index],
+                          ),
+                          Text(
+                            title[index],
+                            style: const TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -204,7 +228,7 @@ class MobileDashboard extends StatelessWidget {
         backgroundColor: Colors.green,
         foregroundColor: Colors.white,
         shape: const CircleBorder(),
-        child: Icon(MdiIcons.whatsapp, size: 32),
+        child: Image.asset('images/wa.gif', width: 42),
         onPressed: () {
           launchUrl(Uri.parse('https://wa.me/6281128041000'));
         },

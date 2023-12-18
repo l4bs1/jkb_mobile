@@ -35,13 +35,13 @@ class _IntroPageState extends State<IntroPage> {
                 "Jurusan Komputer dan Bisnis",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               Text(
                 "Politeknik Negeri Cilacap",
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 19,
                   color: Colors.black54,
                 ),
               ),
@@ -55,8 +55,6 @@ class _IntroPageState extends State<IntroPage> {
               fontSize: 14,
             ),
             textAlign: TextAlign.center,
-            // overflow: TextOverflow.ellipsis,
-            // maxLines: 5,
           ),
           image: Image.asset(
             'images/JKB.png',
