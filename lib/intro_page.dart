@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:jkb_mobile/dashboard.dart';
+
+import 'responsive/responsive_dashboard.dart';
+import 'responsive/mobile_dashboard.dart';
+import 'responsive/desktop_dashboard.dart';
+import 'responsive/tablet_dashboard.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -103,7 +107,11 @@ class _IntroPageState extends State<IntroPage> {
       onDone: () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const Dashboard()),
+          MaterialPageRoute(
+              builder: (context) => const ResponsiveDashboard(
+                  mobileDashboard: MobileDashboard(),
+                  tabletDashboard: TabletDashboard(),
+                  desktopDashboard: DesktopDashboard())),
         );
       },
       showSkipButton: true,
