@@ -20,7 +20,7 @@ class MobileDashboard extends StatelessWidget {
       extendBodyBehindAppBar: true,
       drawer: myDrawer,
       body: Container(
-        color: const Color(0xff253b80),
+        color: primaryColor,
         height: h,
         width: w,
         child: Column(
@@ -32,7 +32,7 @@ class MobileDashboard extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 30.0,
+                    height: 50.0,
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,

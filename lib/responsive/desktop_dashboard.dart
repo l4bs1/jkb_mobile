@@ -22,7 +22,7 @@ class DesktopDashboard extends StatelessWidget {
           myDrawer,
           Expanded(
             child: Container(
-              color: const Color(0xff253b80),
+              color: primaryColor,
               height: h,
               width: w,
               child: Column(
@@ -34,24 +34,24 @@ class DesktopDashboard extends StatelessWidget {
                     child: Column(
                       children: [
                         const SizedBox(
-                          height: 30.0,
+                          height: 20.0,
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset(
                               "images/jkb_putih.png",
-                              width: 128.0,
-                              height: 128.0,
+                              width: 64.0,
+                              height: 64.0,
                               fit: BoxFit.fill,
                             ),
                             const SizedBox(
-                              height: 20.0,
+                              height: 10.0,
                             ),
                             const Text(
                               "Jurusan Komputer dan Bisnis",
                               style: TextStyle(
-                                fontSize: 24.0,
+                                fontSize: 22.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -59,14 +59,14 @@ class DesktopDashboard extends StatelessWidget {
                             const Text(
                               "POLITEKNIK NEGERI CILACAP",
                               style: TextStyle(
-                                fontSize: 27.0,
+                                fontSize: 25.0,
                                 color: Colors.white70,
                               ),
                             ),
                           ],
                         ),
                         const SizedBox(
-                          height: 30.0,
+                          height: 20.0,
                         ),
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

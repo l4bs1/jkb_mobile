@@ -18,7 +18,7 @@ class TabletDashboard extends StatelessWidget {
       extendBodyBehindAppBar: true,
       drawer: myDrawer,
       body: Container(
-        color: const Color(0xff253b80),
+        color: primaryColor,
         height: h,
         width: w,
         child: Column(
@@ -30,24 +30,24 @@ class TabletDashboard extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 30.0,
+                    height: 20.0,
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
                         "images/jkb_putih.png",
-                        width: 128.0,
-                        height: 128.0,
+                        width: 64.0,
+                        height: 64.0,
                         fit: BoxFit.fill,
                       ),
                       const SizedBox(
-                        height: 20.0,
+                        height: 10.0,
                       ),
                       const Text(
                         "Jurusan Komputer dan Bisnis",
                         style: TextStyle(
-                          fontSize: 24.0,
+                          fontSize: 22.0,
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                         ),
@@ -55,14 +55,14 @@ class TabletDashboard extends StatelessWidget {
                       const Text(
                         "POLITEKNIK NEGERI CILACAP",
                         style: TextStyle(
-                          fontSize: 27.0,
+                          fontSize: 25.0,
                           color: Colors.white70,
                         ),
                       ),
                     ],
                   ),
                   const SizedBox(
-                    height: 30.0,
+                    height: 10.0,
                   ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -73,11 +73,11 @@ class TabletDashboard extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.call,
-                            size: 32.0,
+                            size: 24.0,
                             color: Colors.white,
                           ),
                           SizedBox(
-                            width: 12.0,
+                            width: 10.0,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +85,7 @@ class TabletDashboard extends StatelessWidget {
                               Text(
                                 "(0282) 533329",
                                 style: TextStyle(
-                                  fontSize: 18.0,
+                                  fontSize: 16.0,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
@@ -106,11 +106,11 @@ class TabletDashboard extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.email,
-                            size: 32.0,
+                            size: 26.0,
                             color: Colors.white,
                           ),
                           SizedBox(
-                            width: 12.0,
+                            width: 10.0,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,7 +118,7 @@ class TabletDashboard extends StatelessWidget {
                               Text(
                                 "Jl. Dr. Soetomo No. 1",
                                 style: TextStyle(
-                                  fontSize: 18.0,
+                                  fontSize: 16.0,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),

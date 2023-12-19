@@ -4,6 +4,8 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'informasi.dart';
 import 'program_studi.dart';
 
+const primaryColor = Color(0xff253b80);
+
 const List imgData = [
   "images/prodi.jpg",
   "images/intro_info.jpg",
