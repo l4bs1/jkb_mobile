@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:jkb_mobile/constants.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -167,7 +165,7 @@ class _InformasiState extends State<Informasi> {
                           Icon(
                             MdiIcons.textSearchVariant,
                             size: 80.0,
-                            color: Colors.red,
+                            color: Colors.grey,
                           ),
                           const SizedBox(
                             height: 16.0,
@@ -177,7 +175,7 @@ class _InformasiState extends State<Informasi> {
                             style: TextStyle(
                               fontSize: 16.0,
                               fontStyle: FontStyle.italic,
-                              color: Colors.red,
+                              color: Colors.grey,
                             ),
                           ),
                         ],
@@ -197,8 +195,7 @@ class _InformasiState extends State<Informasi> {
                               children: [
                                 Container(
                                   clipBehavior: Clip.antiAlias,
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.17,
+                                  width: 65,
                                   padding: const EdgeInsets.all(8.0),
                                   decoration: const BoxDecoration(
                                     color: primaryColor,

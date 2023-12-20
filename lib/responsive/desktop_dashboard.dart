@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jkb_mobile/constants.dart';
+import 'package:jkb_mobile/responsive/content_grid_view.dart';
+import 'package:jkb_mobile/responsive/my_drawer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DesktopDashboard extends StatelessWidget {
@@ -19,7 +21,7 @@ class DesktopDashboard extends StatelessWidget {
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          myDrawer,
+          const MyDrawer(),
           Expanded(
             child: Container(
               color: primaryColor,
@@ -154,50 +156,7 @@ class DesktopDashboard extends StatelessWidget {
                     ),
                     height: h * 0.6,
                     width: w,
-                    child: GridView.builder(
-                      padding: EdgeInsets.zero,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        childAspectRatio: 1.0,
-                        crossAxisCount: 4,
-                        mainAxisSpacing: 25,
-                      ),
-                      itemCount: imgData.length,
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          margin: const EdgeInsets.symmetric(
-                              vertical: 8, horizontal: 20),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.black26,
-                                spreadRadius: 1,
-                                blurRadius: 6,
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Image.asset(
-                                imgData[index],
-                              ),
-                              Text(
-                                title[index],
-                                style: const TextStyle(
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
+                    child: const ContentGridView(crossAxisCount: 4),
                   ),
                 ],
               ),

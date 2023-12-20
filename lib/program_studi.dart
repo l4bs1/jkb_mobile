@@ -7,26 +7,27 @@ class ProgramStudi extends StatelessWidget {
   Widget build(BuildContext context) {
     List prodi = [
       {
-        "label": "Diploma III \nTeknik Informatika",
+        "label": "Diploma III \nTeknik Informatika \n(TI)",
         "image": "https://jkb.pnc.ac.id/wp-content/uploads/2023/03/cover.jpg",
       },
       {
-        "label": "Sarjana Terapan \nRekayasa Keamanan Siber",
+        "label": "Sarjana Terapan \nRekayasa Keamanan Siber \n(RKS)",
         "image":
             "https://jkb.pnc.ac.id/wp-content/uploads/2023/02/rks-headerr-768x254-2.png",
       },
       {
-        "label": "Sarjana Terapan \nTeknologi Rekayasa Multimedia",
+        "label": "Sarjana Terapan \nTeknologi Rekayasa Multimedia \n(TRM)",
         "image":
             "https://jkb.pnc.ac.id/wp-content/uploads/2023/04/trm-1450x480-1.png",
       },
       {
-        "label": "Sarjana Terapan \nAkuntansi Lembaga Keuangan Syariah",
+        "label":
+            "Sarjana Terapan \nAkuntansi Lembaga Keuangan Syariah \n(ALKS)",
         "image":
             "https://jkb.pnc.ac.id/wp-content/uploads/2023/06/alks-header-2-1-1450x480-1.jpg",
       },
       {
-        "label": "Sarjana Terapan \nRekayasa Perangkat Lunak",
+        "label": "Sarjana Terapan \nRekayasa Perangkat Lunak \n(RPL)",
         "image": "https://jkb.pnc.ac.id/wp-content/uploads/2023/03/cover2.png",
       },
     ];
@@ -164,28 +165,6 @@ class ProgramStudi extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                // Positioned(
-                                //   top: 0,
-                                //   right: 0,
-                                //   child: Container(
-                                //     padding: const EdgeInsets.all(8.0),
-                                //     decoration: const BoxDecoration(
-                                //       color: Colors.red,
-                                //       borderRadius: BorderRadius.only(
-                                //         bottomLeft: Radius.circular(20),
-                                //       ),
-                                //     ),
-                                //     child: const Text(
-                                //       "Comming Soon!",
-                                //       style: TextStyle(
-                                //         fontSize: 16.0,
-                                //         color: Colors.white,
-                                //         fontWeight: FontWeight.bold,
-                                //         fontStyle: FontStyle.italic,
-                                //       ),
-                                //     ),
-                                //   ),
-                                // ),
                               ],
                             ),
                           ),
