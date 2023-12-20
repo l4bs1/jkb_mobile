@@ -1,6 +1,5 @@
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'constants.dart';
 
@@ -12,7 +11,7 @@ class BeritaTerbaru extends StatefulWidget {
 }
 
 class _BeritaTerbaruState extends State<BeritaTerbaru> {
-  List<Map<String, dynamic>> berita = [
+  List<Map<String, dynamic>> listBerita = [
     {
       "id": 1,
       "photo":
@@ -86,18 +85,23 @@ class _BeritaTerbaruState extends State<BeritaTerbaru> {
   ];
 
   final List<String> categories = [
-    'Semua',
     'Jurusan',
     'Informatika',
     'Siber',
     'Multimedia',
     'Akuntansi',
+    'RPL',
   ];
 
   List<String> selectedCategories = [];
 
   @override
   Widget build(BuildContext context) {
+    final filterBerita = listBerita.where((berita) {
+      return selectedCategories.isEmpty ||
+          selectedCategories.contains(berita["category"]);
+    }).toList();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
@@ -113,7 +117,7 @@ class _BeritaTerbaruState extends State<BeritaTerbaru> {
             margin: const EdgeInsets.all(8.0),
             child: Wrap(
               spacing: 8.0,
-              runSpacing: 8.0,
+              runSpacing: 2.0,
               children: categories
                   .map(
                     (category) => FilterChip(
@@ -133,127 +137,153 @@ class _BeritaTerbaruState extends State<BeritaTerbaru> {
             ),
           ),
           Expanded(
-            child: GridView.builder(
-              padding: EdgeInsets.zero,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 1.0 / 1.0,
-                crossAxisCount: 1,
-                mainAxisSpacing: 8,
-                crossAxisSpacing: 8,
-              ),
-              itemCount: berita.length,
-              physics: const ScrollPhysics(),
-              itemBuilder: (BuildContext context, int index) {
-                var item = berita[index];
-                return Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0, vertical: 8.0),
-                  child: Card(
-                    surfaceTintColor: Colors.white,
-                    elevation: 4,
+            child: filterBerita.isEmpty
+                ? Center(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Expanded(
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                  item["photo"],
-                                ),
-                                fit: BoxFit.cover,
-                              ),
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(
-                                  6.0,
-                                ),
-                              ),
-                            ),
-                          ),
+                        Icon(
+                          MdiIcons.textSearchVariant,
+                          size: 80.0,
+                          color: Colors.grey,
                         ),
                         const SizedBox(
-                          height: 8.0,
+                          height: 16.0,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                        const Text(
+                          "Berita Tidak Ditemukan!",
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontStyle: FontStyle.italic,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                : GridView.builder(
+                    padding: EdgeInsets.zero,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      childAspectRatio: 1.0 / 1.0,
+                      crossAxisCount: 1,
+                      mainAxisSpacing: 8,
+                      crossAxisSpacing: 8,
+                    ),
+                    itemCount: filterBerita.length,
+                    physics: const ScrollPhysics(),
+                    itemBuilder: (BuildContext context, int index) {
+                      var item = filterBerita[index];
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 8.0),
+                        child: Card(
+                          surfaceTintColor: Colors.white,
+                          elevation: 4,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                item["title"],
-                                style: const TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: primaryColor,
+                              Expanded(
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                        item["photo"],
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(
+                                        6.0,
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ),
                               const SizedBox(
                                 height: 8.0,
                               ),
-                              Row(
-                                children: [
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        MdiIcons.clockOutline,
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      item["title"],
+                                      style: const TextStyle(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: primaryColor,
                                       ),
-                                      const SizedBox(
-                                        width: 4.0,
-                                      ),
-                                      Text(
-                                        item["date"],
-                                        style: const TextStyle(
-                                          fontSize: 12.0,
+                                    ),
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              MdiIcons.clockOutline,
+                                            ),
+                                            const SizedBox(
+                                              width: 4.0,
+                                            ),
+                                            Text(
+                                              item["date"],
+                                              style: const TextStyle(
+                                                fontSize: 12.0,
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    width: 10.0,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        MdiIcons.folderOpenOutline,
-                                      ),
-                                      const SizedBox(
-                                        width: 4.0,
-                                      ),
-                                      Text(
-                                        item["category"],
-                                        style: const TextStyle(
-                                          fontSize: 12.0,
+                                        const SizedBox(
+                                          width: 10.0,
                                         ),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              MdiIcons.folderOpenOutline,
+                                            ),
+                                            const SizedBox(
+                                              width: 4.0,
+                                            ),
+                                            Text(
+                                              item["category"],
+                                              style: const TextStyle(
+                                                fontSize: 12.0,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 4.0,
+                                    ),
+                                    Text(
+                                      item["content"],
+                                      style: const TextStyle(
+                                        fontSize: 14.0,
                                       ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 4.0,
-                              ),
-                              Text(
-                                item["content"],
-                                style: const TextStyle(
-                                  fontSize: 14.0,
+                                      maxLines: 4,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                    const SizedBox(
+                                      height: 16.0,
+                                    ),
+                                  ],
                                 ),
-                                maxLines: 4,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              const SizedBox(
-                                height: 16.0,
                               ),
                             ],
                           ),
                         ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
-                );
-              },
-            ),
           ),
         ],
       ),
