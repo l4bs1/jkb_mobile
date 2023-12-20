@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jkb_mobile/constants.dart';
 import 'package:jkb_mobile/intro_page.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff253b80)),
+        colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
         fontFamily: 'Poppins',
         useMaterial3: true,
       ),

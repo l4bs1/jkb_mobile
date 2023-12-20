@@ -90,7 +90,7 @@ class _IntroPageState extends State<IntroPage> {
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: 'Berita Terkini',
+          title: 'Berita Terbaru',
           bodyWidget: const Text(
             "Dapatkan pembaruan terkini tentang berita dan prestasi terbaru dari Jurusan Komputer dan Bisnis Politeknik Negeri Cilacap. Kami berkomitmen untuk memberikan informasi relevan yang memperkaya pemahaman anda mengenai perkembangan terbaru di dunia teknologi informasi dan bisnis.",
             textAlign: TextAlign.center,

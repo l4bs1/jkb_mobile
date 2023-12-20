@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:jkb_mobile/constants.dart';
-import 'package:jkb_mobile/informasi.dart';
-import 'package:jkb_mobile/program_studi.dart';
+import 'package:jkb_mobile/responsive/my_drawer.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'content_grid_view.dart';
 
 class MobileDashboard extends StatelessWidget {
   const MobileDashboard({super.key});
@@ -18,9 +19,9 @@ class MobileDashboard extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
       extendBodyBehindAppBar: true,
-      drawer: myDrawer,
+      drawer: const MyDrawer(),
       body: Container(
-        color: const Color(0xff253b80),
+        color: primaryColor,
         height: h,
         width: w,
         child: Column(
@@ -32,7 +33,7 @@ class MobileDashboard extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 30.0,
+                    height: 50.0,
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -152,73 +153,7 @@ class MobileDashboard extends StatelessWidget {
               ),
               height: h * 0.65,
               width: w,
-              child: GridView.builder(
-                padding: EdgeInsets.zero,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 1.0,
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 25,
-                ),
-                itemCount: imgData.length,
-                shrinkWrap: true,
-                physics: const AlwaysScrollableScrollPhysics(),
-                itemBuilder: (BuildContext context, int index) {
-                  return InkWell(
-                    onTap: () {
-                      if (index == 0) {
-                        print('Program Studi');
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ProgramStudi()),
-                        );
-                      } else if (index == 1) {
-                        print('Informasi');
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Informasi()),
-                        );
-                      } else if (index == 2) {
-                        print('Event');
-                      } else {
-                        print('Berita Terkini');
-                      }
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(
-                          vertical: 8, horizontal: 20),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white,
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black26,
-                            spreadRadius: 1,
-                            blurRadius: 6,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Image.asset(
-                            imgData[index],
-                          ),
-                          Text(
-                            title[index],
-                            style: const TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
+              child: const ContentGridView(),
             ),
           ],
         ),
