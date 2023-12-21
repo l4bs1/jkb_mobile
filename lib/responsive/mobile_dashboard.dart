@@ -28,61 +28,99 @@ class MobileDashboard extends StatelessWidget {
           children: [
             Container(
               decoration: const BoxDecoration(),
-              height: h * 0.35,
+              height: (h <= 800) ? h * 0.35 : h * 0.3,
               width: w,
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 50.0,
-                  ),
+                  (w <= 480 && h <= 800)
+                      ? const SizedBox(
+                          height: 40.0,
+                        )
+                      : const SizedBox(
+                          height: 50.0,
+                        ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        "images/jkb_putih.png",
-                        width: 64.0,
-                        height: 64.0,
-                        fit: BoxFit.fill,
-                      ),
+                      (w <= 480 && h <= 800)
+                          ? Image.asset(
+                              "images/jkb_putih.png",
+                              width: 40.0,
+                              height: 40.0,
+                              fit: BoxFit.fill,
+                            )
+                          : Image.asset(
+                              "images/jkb_putih.png",
+                              width: 64.0,
+                              height: 64.0,
+                              fit: BoxFit.fill,
+                            ),
                       const SizedBox(
                         height: 8.0,
                       ),
-                      const Text(
-                        "Jurusan Komputer dan Bisnis",
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const Text(
-                        "POLITEKNIK NEGERI CILACAP",
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          color: Colors.white70,
-                        ),
-                      ),
+                      (w <= 480 && h <= 800)
+                          ? const Text(
+                              "Jurusan Komputer dan Bisnis",
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            )
+                          : const Text(
+                              "Jurusan Komputer dan Bisnis",
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                      (w <= 480 && h <= 800)
+                          ? const Text(
+                              "POLITEKNIK NEGERI CILACAP",
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                color: Colors.white70,
+                              ),
+                            )
+                          : const Text(
+                              "POLITEKNIK NEGERI CILACAP",
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.white70,
+                              ),
+                            )
                     ],
                   ),
-                  const SizedBox(
-                    height: 16.0,
-                  ),
-                  const Row(
+                  (w <= 480 && h <= 800)
+                      ? const SizedBox(
+                          height: 8.0,
+                        )
+                      : const SizedBox(
+                          height: 16.0,
+                        ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(
-                            Icons.call,
-                            size: 24.0,
-                            color: Colors.white,
-                          ),
-                          SizedBox(
+                          (w <= 480 && h <= 800)
+                              ? const Icon(
+                                  Icons.call,
+                                  size: 18.0,
+                                  color: Colors.white,
+                                )
+                              : const Icon(
+                                  Icons.call,
+                                  size: 24.0,
+                                  color: Colors.white,
+                                ),
+                          const SizedBox(
                             width: 6.0,
                           ),
-                          Column(
+                          const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
@@ -107,15 +145,21 @@ class MobileDashboard extends StatelessWidget {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(
-                            Icons.email,
-                            size: 24.0,
-                            color: Colors.white,
-                          ),
-                          SizedBox(
+                          (w <= 480 && h <= 800)
+                              ? const Icon(
+                                  Icons.email,
+                                  size: 20.0,
+                                  color: Colors.white,
+                                )
+                              : const Icon(
+                                  Icons.email,
+                                  size: 24.0,
+                                  color: Colors.white,
+                                ),
+                          const SizedBox(
                             width: 6.0,
                           ),
-                          Column(
+                          const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
@@ -151,7 +195,7 @@ class MobileDashboard extends StatelessWidget {
                   topRight: Radius.circular(30),
                 ),
               ),
-              height: h * 0.65,
+              height: (h <= 800) ? h * 0.65 : h * 0.7,
               width: w,
               child: const ContentGridView(),
             ),

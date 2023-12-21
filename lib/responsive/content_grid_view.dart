@@ -15,12 +15,15 @@ class ContentGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
+
     return GridView.builder(
       padding: EdgeInsets.zero,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        childAspectRatio: 1.0,
+        childAspectRatio: (w <= 480 && h <= 800) ? 1.1 : 1.0,
         crossAxisCount: crossAxisCount,
-        mainAxisSpacing: 25,
+        mainAxisSpacing: (w <= 480 && h <= 800) ? 10 : 25,
       ),
       itemCount: imgData.length,
       shrinkWrap: true,
@@ -70,17 +73,31 @@ class ContentGridView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Image.asset(
-                  imgData[index],
-                ),
-                Text(
-                  title[index],
-                  style: const TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
+                (w <= 480 && h <= 800)
+                    ? Image.asset(
+                        imgData[index],
+                        width: 100,
+                      )
+                    : Image.asset(
+                        imgData[index],
+                      ),
+                (w <= 480 && h <= 800)
+                    ? Text(
+                        title[index],
+                        style: const TextStyle(
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        textAlign: TextAlign.center,
+                      )
+                    : Text(
+                        title[index],
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
               ],
             ),
           ),

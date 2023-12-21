@@ -16,6 +16,9 @@ class IntroPage extends StatefulWidget {
 class _IntroPageState extends State<IntroPage> {
   @override
   Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
+
     const pageDecoration = PageDecoration(
       titleTextStyle: TextStyle(
         fontSize: 28,
@@ -58,7 +61,7 @@ class _IntroPageState extends State<IntroPage> {
           ),
           image: Image.asset(
             'images/JKB.png',
-            width: 350,
+            width: (w <= 480 && h <= 800) ? 200 : 350,
             fit: BoxFit.contain,
           ),
           decoration: pageDecoration,
@@ -71,7 +74,7 @@ class _IntroPageState extends State<IntroPage> {
           ),
           image: Image.asset(
             'images/intro_info.jpg',
-            width: 350,
+            width: (w <= 480 && h <= 800) ? 200 : 350,
             fit: BoxFit.contain,
           ),
           decoration: pageDecoration,
@@ -84,7 +87,7 @@ class _IntroPageState extends State<IntroPage> {
           ),
           image: Image.asset(
             'images/intro_event.jpg',
-            width: 350,
+            width: (w <= 480 && h <= 800) ? 200 : 350,
             fit: BoxFit.contain,
           ),
           decoration: pageDecoration,
@@ -97,7 +100,7 @@ class _IntroPageState extends State<IntroPage> {
           ),
           image: Image.asset(
             'images/intro_news.jpg',
-            width: 350,
+            width: (w <= 480 && h <= 800) ? 200 : 350,
           ),
           decoration: pageDecoration,
         ),
@@ -130,11 +133,12 @@ class _IntroPageState extends State<IntroPage> {
           fontWeight: FontWeight.bold,
         ),
       ),
-      dotsDecorator: const DotsDecorator(
-          size: Size(10, 10),
+      dotsDecorator: DotsDecorator(
+          size: const Size(10, 10),
           color: Colors.grey,
-          activeSize: Size(22, 10),
-          activeShape: RoundedRectangleBorder(
+          activeSize:
+              (w <= 480 && h <= 800) ? const Size(10, 10) : const Size(22, 10),
+          activeShape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(25)))),
     );
   }
