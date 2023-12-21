@@ -23,120 +23,170 @@ class TabletDashboard extends StatelessWidget {
         color: primaryColor,
         height: h,
         width: w,
-        child: Column(
+        child: Row(
           children: [
             Container(
               decoration: const BoxDecoration(),
-              height: h * 0.4,
-              width: w,
+              // height: h * 0.6,
+              width: w * 0.4,
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 20.0,
-                  ),
+                  (w <= 480 && h <= 800)
+                      ? const SizedBox(
+                          height: 40.0,
+                        )
+                      : const SizedBox(
+                          height: 40.0,
+                        ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        "images/jkb_putih.png",
-                        width: 64.0,
-                        height: 64.0,
-                        fit: BoxFit.fill,
-                      ),
+                      (w <= 480 && h <= 800)
+                          ? Image.asset(
+                              "images/jkb_putih.png",
+                              width: 40.0,
+                              height: 40.0,
+                              fit: BoxFit.fill,
+                            )
+                          : Image.asset(
+                              "images/jkb_putih.png",
+                              width: 64.0,
+                              height: 64.0,
+                              fit: BoxFit.fill,
+                            ),
                       const SizedBox(
-                        height: 10.0,
+                        height: 8.0,
                       ),
-                      const Text(
-                        "Jurusan Komputer dan Bisnis",
-                        style: TextStyle(
-                          fontSize: 22.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const Text(
-                        "POLITEKNIK NEGERI CILACAP",
-                        style: TextStyle(
-                          fontSize: 25.0,
-                          color: Colors.white70,
-                        ),
-                      ),
+                      (w <= 480 && h <= 800)
+                          ? const Text(
+                              "Jurusan Komputer dan Bisnis",
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            )
+                          : const Text(
+                              "Jurusan Komputer dan Bisnis",
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                      (w <= 480 && h <= 800)
+                          ? const Text(
+                              "POLITEKNIK NEGERI CILACAP",
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                color: Colors.white70,
+                              ),
+                            )
+                          : const Text(
+                              "POLITEKNIK NEGERI CILACAP",
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.white70,
+                              ),
+                            )
                     ],
                   ),
-                  const SizedBox(
-                    height: 10.0,
-                  ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.call,
-                            size: 24.0,
-                            color: Colors.white,
-                          ),
-                          SizedBox(
-                            width: 10.0,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "(0282) 533329",
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                  (w <= 480 && h <= 800)
+                      ? const SizedBox(
+                          height: 8.0,
+                        )
+                      : const SizedBox(
+                          height: 20.0,
+                        ),
+                  Container(
+                    margin: const EdgeInsets.only(
+                      left: 30.0,
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            (w <= 480 && h <= 800)
+                                ? const Icon(
+                                    Icons.call,
+                                    size: 18.0,
+                                    color: Colors.white,
+                                  )
+                                : const Icon(
+                                    Icons.call,
+                                    size: 24.0,
+                                    color: Colors.white,
+                                  ),
+                            const SizedBox(
+                              width: 6.0,
+                            ),
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "(0282) 533329",
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                "sekretariat@pnc.ac.id",
-                                style: TextStyle(
-                                  fontSize: 14.0,
-                                  color: Colors.white,
+                                Text(
+                                  "sekretariat@pnc.ac.id",
+                                  style: TextStyle(
+                                    fontSize: 10.0,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.email,
-                            size: 26.0,
-                            color: Colors.white,
-                          ),
-                          SizedBox(
-                            width: 10.0,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Jl. Dr. Soetomo No. 1",
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 16.0,
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            (w <= 480 && h <= 800)
+                                ? const Icon(
+                                    Icons.email,
+                                    size: 20.0,
+                                    color: Colors.white,
+                                  )
+                                : const Icon(
+                                    Icons.email,
+                                    size: 24.0,
+                                    color: Colors.white,
+                                  ),
+                            const SizedBox(
+                              width: 6.0,
+                            ),
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Jl. Dr. Soetomo No. 1",
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                "Sidakaya, Cilacap Selatan, \nJawa Tengah, 53212",
-                                style: TextStyle(
-                                  fontSize: 14.0,
-                                  color: Colors.white,
+                                Text(
+                                  "Sidakaya, Cilacap Selatan, \nJawa Tengah, 53212",
+                                  style: TextStyle(
+                                    fontSize: 10.0,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -147,12 +197,12 @@ class TabletDashboard extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
+                  bottomLeft: Radius.circular(30),
                 ),
               ),
-              height: h * 0.6,
-              width: w,
-              child: const ContentGridView(crossAxisCount: 3),
+              // height: h * 0.4,
+              width: w * 0.6,
+              child: const ContentGridView(crossAxisCount: 2),
             ),
           ],
         ),
