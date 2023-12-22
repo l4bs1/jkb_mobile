@@ -31,7 +31,7 @@ class TabletDashboard extends StatelessWidget {
               width: w * 0.4,
               child: Column(
                 children: [
-                  (w <= 480 && h <= 800)
+                  (w <= 800 && h <= 480)
                       ? const SizedBox(
                           height: 40.0,
                         )
@@ -41,11 +41,11 @@ class TabletDashboard extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      (w <= 480 && h <= 800)
+                      (w <= 800 && h <= 480)
                           ? Image.asset(
                               "images/jkb_putih.png",
-                              width: 40.0,
-                              height: 40.0,
+                              width: 42.0,
+                              height: 42.0,
                               fit: BoxFit.fill,
                             )
                           : Image.asset(
@@ -57,11 +57,11 @@ class TabletDashboard extends StatelessWidget {
                       const SizedBox(
                         height: 8.0,
                       ),
-                      (w <= 480 && h <= 800)
+                      (w <= 800 && h <= 480)
                           ? const Text(
                               "Jurusan Komputer dan Bisnis",
                               style: TextStyle(
-                                fontSize: 12.0,
+                                fontSize: 11.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -74,11 +74,11 @@ class TabletDashboard extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                      (w <= 480 && h <= 800)
+                      (w <= 800 && h <= 480)
                           ? const Text(
                               "POLITEKNIK NEGERI CILACAP",
                               style: TextStyle(
-                                fontSize: 14.0,
+                                fontSize: 12.0,
                                 color: Colors.white70,
                               ),
                             )
@@ -91,7 +91,7 @@ class TabletDashboard extends StatelessWidget {
                             )
                     ],
                   ),
-                  (w <= 480 && h <= 800)
+                  (w <= 800 && h <= 480)
                       ? const SizedBox(
                           height: 8.0,
                         )
@@ -107,10 +107,10 @@ class TabletDashboard extends StatelessWidget {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            (w <= 480 && h <= 800)
+                            (w <= 800 && h <= 480)
                                 ? const Icon(
                                     Icons.call,
-                                    size: 18.0,
+                                    size: 16.0,
                                     color: Colors.white,
                                   )
                                 : const Icon(
@@ -149,10 +149,10 @@ class TabletDashboard extends StatelessWidget {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            (w <= 480 && h <= 800)
+                            (w <= 800 && h <= 480)
                                 ? const Icon(
                                     Icons.email,
-                                    size: 20.0,
+                                    size: 16.0,
                                     color: Colors.white,
                                   )
                                 : const Icon(
@@ -207,7 +207,7 @@ class TabletDashboard extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
         foregroundColor: Colors.white,

@@ -73,7 +73,7 @@ class ContentGridView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                (w <= 480 && h <= 800)
+                ((w <= 480 && h <= 800) || (w <= 800 && h <= 480))
                     ? Image.asset(
                         imgData[index],
                         width: 100,
@@ -81,7 +81,7 @@ class ContentGridView extends StatelessWidget {
                     : Image.asset(
                         imgData[index],
                       ),
-                (w <= 480 && h <= 800)
+                ((w <= 480 && h <= 800) || (w <= 800 && h <= 480))
                     ? Text(
                         title[index],
                         style: const TextStyle(
